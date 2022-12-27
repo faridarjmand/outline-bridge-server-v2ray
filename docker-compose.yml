@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  v2ray:
+    image: ghcr.io/getimages/v2fly-core:v4.45.2
+    restart: always
+    ports:
+      - ${V2RAY_PORT:-1000}:1000
+      - ${V2RAY_PORT:-1000}:1000/udp
+    volumes:
+      - ./config/:/etc/v2ray/
+      - /var/log/v2ray:/var/log/v2ray/
